@@ -1,6 +1,6 @@
 ## 🌐 Personal Portfolio
 
-A simple and modern personal portfolio website built using React.
+A modern personal portfolio website built using React.
 Showcases my work, skills, projects, and provides an easy way to contact me.
 
 ---
@@ -9,6 +9,7 @@ Showcases my work, skills, projects, and provides an easy way to contact me.
 
 👉 https://your-live-link.com
 
+---
 
 ## 🛠 Tech Used
 
@@ -17,12 +18,14 @@ Showcases my work, skills, projects, and provides an easy way to contact me.
 - TailwindCSS
 - EmailJS (for contact form)
 
+---
+
 ## 📦 Setup
 ```bash
 npm install
 npm run dev
 ```
-
+--- 
 ## 📄 About
 
 This portfolio highlights my journey, projects, and areas of expertise.
