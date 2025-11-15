@@ -54,7 +54,7 @@ const About = () => {
               </ul>
             </div>
             <div className="flex flex-wrap gap-4">
-              <Button href="/resume.jpg" variant="secondary" target="_blank">
+              <Button href="/Rehan-Resume.pdf" variant="secondary" target="_blank">
                 View Resume
               </Button>
               <Button to="/#contact" variant="ghost">
