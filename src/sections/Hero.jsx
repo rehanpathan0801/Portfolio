@@ -12,7 +12,7 @@ const socials = [
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden pb-12 pt-16 sm:pb-16 sm:pt-24">
+    <section id="home" className="relative overflow-hidden pb-12 pt-16 sm:pb-16 sm:pt-24">
       <Container className="relative grid items-center gap-16 lg:grid-cols-[1.1fr,0.9fr]">
         <motion.div
           initial={{ opacity: 0, x: -40 }}

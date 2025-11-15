@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -6,32 +6,78 @@ import ThemeToggle from "./ThemeToggle.jsx";
 import Container from "./Container.jsx";
 
 const links = [
-  { href: "/", label: "Home", type: "route" },
-  { href: "/#about", label: "About", type: "hash" },
-  { href: "/projects", label: "Projects", type: "route" },
-  { href: "/#contact", label: "Contact", type: "hash" },
+  { href: "/", label: "Home", type: "route", section: "home" },
+  { href: "/#about", label: "About", type: "hash", section: "about" },
+  { href: "/projects", label: "Projects", type: "route", section: "projects" },
+  { href: "/#contact", label: "Contact", type: "hash", section: "contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const [activeHash, setActiveHash] = useState(window.location.hash);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // ⭐ Prevent observer from interfering during manual scroll
+  const manualScroll = useRef(false);
 
+  const handleClose = () => setOpen(false);
+
+  // ⭐ AUTO-DETECT SECTION ON SCROLL
+  useEffect(() => {
+    const sectionIds = ["home", "about", "projects", "projects-page", "contact"];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (manualScroll.current) return; // prevent override during manual scroll
+
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
+            const id = entry.target.id;
+
+            if (id === "home") {
+              setActiveHash("");
+              window.history.replaceState(null, "", "/");
+              return;
+            }
+
+            if (id === "projects" || id === "projects-page") {
+              setActiveHash("#projects");
+              window.history.replaceState(null, "", "/#projects");
+              return;
+            }
+
+            setActiveHash(`#${id}`);
+            window.history.replaceState(null, "", `/#${id}`);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    sectionIds.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // ⭐ ACTIVE STATE LOGIC
   const isLinkActive = (link) => {
+    if (link.section === "projects") {
+      return (
+        activeHash === "#projects" ||
+        location.pathname.startsWith("/projects")
+      );
+    }
+
     if (link.type === "hash") {
-      const hash = link.href.split("#")[1];
-      if (hash === "contact" && location.pathname === "/contact") {
-        return true;
-      }
-      return location.pathname === "/" && location.hash === `#${hash}`;
+      return location.pathname === "/" && activeHash === `#${link.section}`;
     }
 
     if (link.href === "/") {
-      return location.pathname === "/" && (!location.hash || location.hash === "");
+      return location.pathname === "/" && activeHash === "";
     }
 
     return location.pathname.startsWith(link.href);
@@ -51,59 +97,64 @@ const Navbar = () => {
         : "text-light-foreground hover:text-light-accent dark:text-dark-foreground dark:hover:text-dark-accent"
     }`;
 
+  // ⭐ NAVIGATION HANDLER
   const handleNavigation = (event, link) => {
     if (link.type === "hash") {
       event.preventDefault();
-      const hash = link.href.split("#")[1];
-      
-      if (!hash) {
-        handleClose();
-        return;
-      }
+      const hash = link.section;
+
+      manualScroll.current = true;
 
       const scrollToSection = () => {
-        const section = document.getElementById(hash);
-        if (section) {
+        const sec = document.getElementById(hash);
+        if (sec) {
           const offset = 80;
-          const elementPosition = section.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          const top =
+            sec.getBoundingClientRect().top + window.pageYOffset - offset;
 
           window.scrollTo({
-            top: offsetPosition,
+            top,
             behavior: "smooth",
           });
-        }
-      };
 
-      const updateHash = () => {
-        window.history.replaceState(null, "", `/#${hash}`);
+          setTimeout(() => {
+            manualScroll.current = false;
+          }, 600);
+        }
       };
 
       if (location.pathname !== "/") {
         navigate("/");
-        setTimeout(() => {
-          scrollToSection();
-          updateHash();
-        }, 300);
+        setTimeout(scrollToSection, 100);
       } else {
-        scrollToSection();
-        updateHash();
+        setTimeout(scrollToSection, open ? 350 : 50); // FIX FOR MOBILE MENU
       }
+
+      setActiveHash(`#${hash}`);
+      window.history.replaceState(null, "", `/#${hash}`);
 
       handleClose();
       return;
     }
 
-    handleClose();
+    // ⭐ ROUTE LINKS
+    manualScroll.current = true;
+    setActiveHash("");
+    window.history.replaceState(null, "", "/");
 
-    if (link.href === "/" && location.pathname === "/" && location.hash) {
-      event.preventDefault();
-      window.history.replaceState(null, "", "/");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    setTimeout(() => {
+      manualScroll.current = false;
+    }, 400);
+
+    handleClose();
   };
 
-  const homeLink = { href: "/", label: "Portfolio", type: "route" };
+  const homeLink = {
+    href: "/",
+    label: "Portfolio",
+    type: "route",
+    section: "home",
+  };
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-light-surface/80 shadow-glass backdrop-blur-glass transition-colors duration-300 dark:bg-dark-surface/80">
@@ -112,7 +163,7 @@ const Navbar = () => {
           <NavLink
             to="/"
             className="text-lg font-semibold tracking-tight text-light-foreground transition-colors hover:text-light-accent dark:text-dark-foreground dark:hover:text-dark-accent"
-            onClick={(event) => handleNavigation(event, homeLink)}
+            onClick={(e) => handleNavigation(e, homeLink)}
           >
             <span className="rounded-full bg-light-accent/10 px-3 py-1 text-sm font-medium uppercase tracking-[0.2em] text-light-accent dark:bg-dark-accent/10 dark:text-dark-accent">
               Portfolio
@@ -129,7 +180,7 @@ const Navbar = () => {
                     key={link.href}
                     to={link.href}
                     className={linkClasses(active)}
-                    onClick={(event) => handleNavigation(event, link)}
+                    onClick={(e) => handleNavigation(e, link)}
                   >
                     {link.label}
                   </NavLink>
@@ -141,7 +192,7 @@ const Navbar = () => {
                   key={link.href}
                   type="button"
                   className={linkClasses(active)}
-                  onClick={(event) => handleNavigation(event, link)}
+                  onClick={(e) => handleNavigation(e, link)}
                 >
                   {link.label}
                 </button>
@@ -180,7 +231,7 @@ const Navbar = () => {
                         <NavLink
                           to={link.href}
                           className={mobileLinkClasses(active)}
-                          onClick={(event) => handleNavigation(event, link)}
+                          onClick={(e) => handleNavigation(e, link)}
                         >
                           {link.label}
                         </NavLink>
@@ -193,7 +244,7 @@ const Navbar = () => {
                       <button
                         type="button"
                         className={mobileLinkClasses(active)}
-                        onClick={(event) => handleNavigation(event, link)}
+                        onClick={(e) => handleNavigation(e, link)}
                       >
                         {link.label}
                       </button>
@@ -213,5 +264,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
