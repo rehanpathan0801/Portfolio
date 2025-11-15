@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-light-background text-light-foreground antialiased transition-colors duration-300 dark:bg-dark-background dark:text-dark-foreground;
+}
+
+::selection {
+  @apply bg-light-accent/30 text-light-foreground dark:bg-dark-accent/30 dark:text-dark-foreground;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-light-subtle/50 dark:bg-dark-subtle/50;
+}
+
+.bg-gradient-radial {
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.4), transparent 65%);
+}
+
+.glass-surface {
+  @apply border border-light-foreground/10 bg-light-surface/70 shadow-glass backdrop-blur-glass dark:border-dark-foreground/10 dark:bg-dark-surface/70;
+}
+
+.heading-gradient {
+  background-image: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(56, 189, 248, 0.85));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+
+
+@keyframes enter {
+  0% { opacity: 0; transform: translateY(-10px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes leave {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-10px) scale(0.95); }
+}
+
+.animate-enter {
+  animation: enter 0.25s ease-out forwards;
+}
+
+.animate-leave {
+  animation: leave 0.2s ease-in forwards;
+}

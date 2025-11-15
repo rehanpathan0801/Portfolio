@@ -1,0 +1,42 @@
+<svg width="512" height="360" viewBox="0 0 512 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="360" rx="40" fill="url(#paint0_radial)" />
+  <g filter="url(#filter0_f)">
+    <circle cx="152" cy="128" r="82" fill="#F472B6" fill-opacity="0.4" />
+  </g>
+  <g filter="url(#filter1_f)">
+    <circle cx="356" cy="214" r="96" fill="#6366F1" fill-opacity="0.4" />
+  </g>
+  <rect
+    x="76"
+    y="80"
+    width="360"
+    height="200"
+    rx="34"
+    fill="rgba(25, 28, 53, 0.6)"
+    stroke="rgba(255,255,255,0.18)"
+    stroke-width="3"
+  />
+  <path
+    d="M148 180C148 148.863 173.863 123 205 123C227.85 123 248.148 135.553 258.688 154.688C266.332 168.582 282.879 173.411 298.781 168.23L304.25 166.45C344.63 153.225 384 183.841 384 226.03C384 229.439 383.717 232.815 383.16 236.135C381.513 245.953 373.393 252.999 363.42 252.999H189C165.147 252.999 148 235.853 148 211.999V180Z"
+    fill="url(#paint1_linear)"
+  />
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(100 60) rotate(45) scale(520 520)">
+      <stop stop-color="#1A103B" />
+      <stop offset="0.45" stop-color="#0F1433" />
+      <stop offset="1" stop-color="#060713" />
+    </radialGradient>
+    <linearGradient id="paint1_linear" x1="148" y1="123" x2="384" y2="252.999" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A855F7" stop-opacity="0.9" />
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0.7" />
+    </linearGradient>
+    <filter id="filter0_f" x="30" y="6" width="244" height="244" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="20" />
+    </filter>
+    <filter id="filter1_f" x="230" y="88" width="252" height="252" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="18" />
+    </filter>
+  </defs>
+</svg>
+
+
