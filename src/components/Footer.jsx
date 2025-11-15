@@ -3,8 +3,8 @@ import { Github, Linkedin, Twitter } from "lucide-react";
 import Container from "./Container.jsx";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/rehanpathan0801", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/rehanpathan08", label: "LinkedIn" },
 ];
 
 const Footer = () => {
