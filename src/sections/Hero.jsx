@@ -27,7 +27,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-5xl font-bold leading-tight tracking-tight text-light-foreground sm:text-6xl lg:text-7xl dark:text-dark-foreground"
             >
-              Hey, I'm{" "}
+              Hi, I'm{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 bg-gradient-to-r from-light-accent via-indigo-400 to-violet-500 bg-clip-text text-transparent dark:from-dark-accent dark:via-purple-400 dark:to-indigo-500">
                   Rehan Pathan
