@@ -45,7 +45,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-xl font-medium leading-relaxed text-light-subtle sm:text-2xl lg:text-3xl dark:text-dark-subtle"
             >
-              Building immersive Web Experiences with{" "}
+              Building Immersive Web Experiences with{" "}
               <span className="bg-gradient-to-r from-light-accent via-sky-400 to-violet-500 bg-clip-text text-transparent font-semibold dark:from-dark-accent dark:via-indigo-400 dark:to-purple-500">
                 React & Full-Stack Skills.
               </span>
