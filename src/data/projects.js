@@ -3,7 +3,7 @@ import projectPulse from "../assets/pgfinder.png";
 import projectNebula from "../assets/car.png";
 import projectMosaic from "../assets/Keeper.png";
 import projectAtlas from "../assets/weather.png";
-import projectHorizon from "../assets/project-horizon.svg"
+import projectPneumonia from "../assets/pneumonia_detection.png";
 
 const projects = [
   {
@@ -28,6 +28,18 @@ const projects = [
     links: [
      // { label: "Live Demo", href: "https://example.com/pulse", variant: "primary" },
       { label: "GitHub", href: "https://github.com/rehanpathan0801/PGFinder", variant: "secondary" },
+    ],
+  },
+  {
+    id: "pneumonia-detection",
+    title: "Pneumonia Detection - (Deep Learning)",
+    description:
+      "Pneumonia Detection is a deep learning model that detects pneumonia from chest X-ray images with high accuracy.",
+    tech: ["Python", "TensorFlow", "Keras", "Deep Learning","CNN","Numpy"],
+    image: projectPneumonia,
+    links: [
+     // { label: "Live Demo", href: "https://example.com/pulse", variant: "primary" },
+      { label: "GitHub", href: "https://github.com/rehanpathan0801/pneumonia-detection-deeplearning", variant: "secondary" },
     ],
   },
   {
