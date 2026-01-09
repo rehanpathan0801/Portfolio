@@ -4,6 +4,7 @@ import projectNebula from "../assets/car.png";
 import projectMosaic from "../assets/Keeper.png";
 import projectAtlas from "../assets/weather.png";
 import projectPneumonia from "../assets/pneumonia_detection.png";
+import projectRag from "../assets/rag_project.png";
 
 const projects = [
   {
@@ -18,16 +19,17 @@ const projects = [
       { label: "GitHub", href: "https://github.com/rehanpathan0801/Prescripto", variant: "secondary" },
     ],
   },
+
   {
-    id: "pulse",
-    title: "PG-Finder - PG Accomodation Platform",
+    id: "enterprise-knowledge-assistant",
+    title: "Enterprise Knowledge Assistant (RAG Based)",
     description:
-      "PG-Finder is a platform that helps students find the perfect PG accommodation in their desired location with ease and convenience.",
-    tech: ["React", "Javascript", "Express", "MongoDB","Tailwind CSS"],
-    image: projectPulse,
+      "A Retrieval-Augmented Generation (RAG) based document question-answering system that allows users to upload PDF documents and ask natural language questions.",
+    tech: ["Python", "LLM", "LangChain", "RAG","FAISS","Streamlit"],
+    image: projectRag,
     links: [
      // { label: "Live Demo", href: "https://example.com/pulse", variant: "primary" },
-      { label: "GitHub", href: "https://github.com/rehanpathan0801/PGFinder", variant: "secondary" },
+      { label: "GitHub", href: "https://github.com/rehanpathan0801/Enterprise-Knowledge-Assistant", variant: "secondary" },
     ],
   },
   {
@@ -40,6 +42,18 @@ const projects = [
     links: [
      // { label: "Live Demo", href: "https://example.com/pulse", variant: "primary" },
       { label: "GitHub", href: "https://github.com/rehanpathan0801/pneumonia-detection-deeplearning", variant: "secondary" },
+    ],
+  },
+    {
+    id: "pulse",
+    title: "PG-Finder - PG Accomodation Platform",
+    description:
+      "PG-Finder is a platform that helps students find the perfect PG accommodation in their desired location with ease and convenience.",
+    tech: ["React", "Javascript", "Express", "MongoDB","Tailwind CSS"],
+    image: projectPulse,
+    links: [
+     // { label: "Live Demo", href: "https://example.com/pulse", variant: "primary" },
+      { label: "GitHub", href: "https://github.com/rehanpathan0801/PGFinder", variant: "secondary" },
     ],
   },
   {
