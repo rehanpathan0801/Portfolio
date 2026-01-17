@@ -7,19 +7,7 @@ import projectPneumonia from "../assets/pneumonia_detection.png";
 import projectRag from "../assets/rag_project.png";
 
 const projects = [
-  {
-    id: "aurora",
-    title: "Prescripto-Smart Healthcare Platform",
-    description:
-      "Prescripto connects doctors, patients and labs on one smart platform, enabling secure appointments, online prescriptions and real-time health insights",
-    tech: ["React", "Javascript", "Express", "MongoDB","Tailwind CSS"],
-    image: projectAurora,
-    links: [
-      //{ label: "Live Demo", href: "https://example.com/aurora", variant: "primary" },
-      { label: "GitHub", href: "https://github.com/rehanpathan0801/Prescripto", variant: "secondary" },
-    ],
-  },
-
+ 
   {
     id: "enterprise-knowledge-assistant",
     title: "Enterprise Knowledge Assistant (RAG Based)",
@@ -44,6 +32,19 @@ const projects = [
       { label: "GitHub", href: "https://github.com/rehanpathan0801/pneumonia-detection-deeplearning", variant: "secondary" },
     ],
   },
+   {
+    id: "aurora",
+    title: "Prescripto-Smart Healthcare Platform",
+    description:
+      "Prescripto connects doctors, patients and labs on one smart platform, enabling secure appointments, online prescriptions and real-time health insights",
+    tech: ["React", "Javascript", "Express", "MongoDB","Tailwind CSS"],
+    image: projectAurora,
+    links: [
+      //{ label: "Live Demo", href: "https://example.com/aurora", variant: "primary" },
+      { label: "GitHub", href: "https://github.com/rehanpathan0801/Prescripto", variant: "secondary" },
+    ],
+  },
+
     {
     id: "pulse",
     title: "PG-Finder - PG Accomodation Platform",

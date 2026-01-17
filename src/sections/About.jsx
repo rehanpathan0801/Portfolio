@@ -20,9 +20,8 @@ const About = () => {
         <div className="grid gap-8 md:grid-cols-2">
           <div className="flex flex-col gap-6">
             <p className="text-base leading-relaxed text-light-subtle dark:text-dark-subtle">
-            I’m a full-stack MERN developer who enjoys blending clean UI with solid engineering.
-             I love transforming ideas into responsive interfaces using React & Tailwind, and building
-              reliable backend systems using Node.js, Express, and MongoDB.
+            I’m a AI-ML and Full Stack enthusiast who enjoys building productive applications.
+             I love transforming ideas into responsive interfaces and models.
             </p>
             <p className="text-base leading-relaxed text-light-subtle dark:text-dark-subtle">
             Currently, I am learning how AI can improve development 
@@ -37,15 +36,15 @@ const About = () => {
               <ul className="space-y-3 text-sm text-light-subtle dark:text-dark-subtle">
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-light-accent dark:bg-dark-accent" />
-                  <span>Frontend development with React & Tailwind</span>
+                  <span>Build GenAI Models</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-light-accent dark:bg-dark-accent" />
-                  <span>Backend development with Node.js, Express & MongoDB</span>
+                  <span>Build ML & DL Models</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-light-accent dark:bg-dark-accent" />
-                  <span>API integration & authentication</span>
+                  <span>Web Development</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-light-accent dark:bg-dark-accent" />
@@ -54,7 +53,7 @@ const About = () => {
               </ul>
             </div>
             <div className="flex flex-wrap gap-4">
-              <Button href="/Rehan-Resume.pdf" variant="secondary" target="_blank">
+              <Button href="/Rehan_Resume_Updated.pdf" variant="secondary" target="_blank">
                 View Resume
               </Button>
               <Button to="/#contact" variant="ghost">

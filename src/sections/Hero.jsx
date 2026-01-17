@@ -45,9 +45,9 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-xl font-medium leading-relaxed text-light-subtle sm:text-2xl lg:text-3xl dark:text-dark-subtle"
             >
-              Building Immersive Web Experiences with{" "}
+              Building Immersive Applications with{" "}
               <span className="bg-gradient-to-r from-light-accent via-sky-400 to-violet-500 bg-clip-text text-transparent font-semibold dark:from-dark-accent dark:via-indigo-400 dark:to-purple-500">
-                React & Full-Stack Skills.
+                Full-Stack & AI-ML Skills.
               </span>
             </motion.p>
             <motion.p
@@ -56,7 +56,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="max-w-xl text-base leading-relaxed text-light-subtle sm:text-lg dark:text-dark-subtle"
             >
-              I craft modern web applications with delightful interactions, polished interfaces, and
+              I craft modern web applications and models with delightful interactions, polished interfaces, and
               high-performance architecture. Let's bring ideas to life with code, design, and motion.
             </motion.p>
           </div>
