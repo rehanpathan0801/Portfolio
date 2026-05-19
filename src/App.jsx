@@ -6,7 +6,7 @@ import Home from "./pages/Home.jsx";
 import Projects from "./pages/Projects.jsx";
 import Contact from "./pages/Contact.jsx";
 import { useTheme } from "./hooks/useTheme.js";
-
+import ScrollToTopButton from "./components/ScrollToTopButton";
 const pageVariants = {
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
@@ -47,6 +47,7 @@ const App = () => {
         </motion.main>
       </AnimatePresence>
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 };
