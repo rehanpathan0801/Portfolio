@@ -142,7 +142,7 @@ const Hero = () => {
   enableMobileTilt={false}
   behindGlowEnabled={true}
   behindGlowColor="rgba(125, 190, 255, 0.20)"
-  iconUrl="src/assets/iconpattern.png"
+  iconUrl="/iconpattern.png"
   innerGradient="linear-gradient(145deg,#0f172a 0%,#1e1b4b 55%,#0f172a 100%)"
 />
   </motion.div>
