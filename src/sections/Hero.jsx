@@ -3,7 +3,7 @@ import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import Button from "../components/Button.jsx";
 import Container from "../components/Container.jsx";
 import heroPortrait from "../assets/profile.jpg";
-
+import ProfileCard from "../components/ProfileCard";
 const socials = [
   { icon: Github, href: "https://github.com/rehanpathan0801", label: "GitHub" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/rehanpathan08", label: "LinkedIn" },
@@ -12,8 +12,12 @@ const socials = [
 
 const Hero = () => {
   return (
-    <section id="home" className="relative overflow-hidden pb-12 pt-16 sm:pb-16 sm:pt-24">
-      <Container className="relative grid items-center gap-16 lg:grid-cols-[1.1fr,0.9fr]">
+    // <section id="home" className="relative overflow-hidden pb-12 pt-16 sm:pb-16 sm:pt-24">
+    <section
+      id="home"
+      className="relative overflow-x-hidden pb-12 pt-16 sm:pb-16 sm:pt-24"
+    >
+      <Container className="relative grid items-center gap-16 lg:grid-cols-[1fr,0.95fr]">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -87,7 +91,7 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
@@ -105,7 +109,46 @@ const Hero = () => {
               className="relative z-10 h-full w-full max-w-sm object-cover rounded-full"
             />
           </motion.div>
-        </motion.div>
+        </motion.div> */}
+
+
+        <motion.div
+  initial={{ opacity: 0, x: 40 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{
+    duration: 0.8,
+    delay: 0.1,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  className="relative flex justify-center lg:justify-end"
+>
+  <motion.div
+    animate={{ y: [0, -12, 0] }}
+    transition={{
+      duration: 6,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  >
+    <ProfileCard
+  name="Rehan Pathan"
+  title="Full Stack & AI-ML Developer"
+  handle="rehanpathan08"
+  status="Available"
+  contactText="Contact Me"
+  avatarUrl={heroPortrait}
+  showUserInfo={false}
+  enableTilt={true}
+  enableMobileTilt={false}
+  behindGlowEnabled={true}
+  behindGlowColor="rgba(125, 190, 255, 0.20)"
+  iconUrl="src/assets/iconpattern.png"
+  innerGradient="linear-gradient(145deg,#0f172a 0%,#1e1b4b 55%,#0f172a 100%)"
+/>
+  </motion.div>
+</motion.div>
+
+
       </Container>
     </section>
   );
